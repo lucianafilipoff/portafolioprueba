@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PALACIOS ConsultorIA · Tus clientas vuelven solas</title>
+<meta name="description" content="Para peluquerías, estéticas y terapeutas. Cada visita, fórmula y foto, guardada. En 14 días y sin cargar nada vos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --crema:#FBF9F1;
+    --crema-2:#F3EFE2;
+    --tinta:#2A2A2A;
+    --oro:#DAA520;
+    --piedra:#A8A8A8;
+    --carbon:#1C1C1A;
+    --petroleo:#243936;
+    --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --ancho:1080px;
+    --radio:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--crema);color:var(--tinta);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit}
+  .contenedor{max-width:var(--ancho);margin:0 auto;padding:0 20px}
+  section{padding:96px 0}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;letter-spacing:-.01em}
+  h1{font-size:clamp(2.6rem,7vw,4.6rem)}
+  h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:20px}
+  h3{font-size:1.45rem;margin-bottom:6px}
+  .etiqueta{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--petroleo);margin-bottom:14px}
+  .bajada{font-size:1.12rem;max-width:620px}
+  .nota{font-size:.88rem;color:#6b6b66}
+
+  /* Botones */
+  .boton{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:1rem;text-decoration:none;padding:15px 26px;border-radius:999px;border:1.5px solid var(--tinta);cursor:pointer;transition:transform .15s ease, background .15s ease, color .15s ease}
+  .boton:hover{transform:translateY(-1px)}
+  .boton:focus-visible{outline:3px solid var(--oro);outline-offset:3px}
+  .boton-principal{background:var(--tinta);color:var(--crema)}
+  .boton-principal:hover{background:var(--carbon)}
+  .boton-secundario{background:transparent;color:var(--tinta)}
+  .boton-secundario:hover{background:var(--crema-2)}
+  .boton-chico{padding:10px 18px;font-size:.92rem}
+  .boton-oro{background:var(--oro);border-color:var(--oro);color:var(--carbon)}
+  .boton-oro:hover{background:#e6b53a}
+
+  /* 1 · Encabezado */
+  header{position:sticky;top:0;z-index:10;background:rgba(251,249,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(42,42,42,.08)}
+  .barra{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .marca{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .marca svg{width:30px;height:38px}
+  .marca-nombre{font-family:var(--serif);font-size:1.35rem;font-weight:600;letter-spacing:.08em}
+  .marca-nombre span{font-family:var(--sans);font-size:.82rem;font-weight:500;letter-spacing:.02em;color:var(--petroleo);margin-left:4px}
+
+  /* 1 · Inicio */
+  .inicio{padding:88px 0 104px}
+  .inicio-grilla{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+  .inicio h1{margin:6px 0 22px}
+  .inicio .bajada{margin-bottom:30px}
+  .botones{display:flex;flex-wrap:wrap;gap:12px}
+  .lema{margin-top:34px;font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--petroleo)}
+  .lema::before{content:"";display:inline-block;width:28px;height:1px;background:var(--oro);vertical-align:middle;margin-right:12px}
+  .lampara-grande{justify-self:center;width:100%;max-width:260px;position:relative}
+  .lampara-grande::before{content:"";position:absolute;inset:8% 4% 30%;background:radial-gradient(circle, rgba(218,165,32,.28), rgba(218,165,32,0) 65%);border-radius:50%}
+
+  /* 2 · ¿Te suena? */
+  .suena{background:var(--crema-2)}
+  .frases{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:32px 0 40px}
+  .frase{background:var(--crema);border-radius:var(--radio);padding:24px 26px;font-family:var(--serif);font-size:1.4rem;font-style:italic;line-height:1.3;border-left:3px solid var(--oro)}
+  .remate{font-family:var(--serif);font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:600;line-height:1.25;max-width:720px;margin-bottom:16px}
+
+  /* 3 · Demo */
+  .demo-caja{margin-top:32px;min-height:340px;border:2px dashed var(--piedra);border-radius:var(--radio);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:40px 20px;color:#6b6b66;background:repeating-linear-gradient(45deg, transparent 0 14px, rgba(168,168,168,.07) 14px 28px)}
+  .demo-caja strong{font-family:var(--serif);font-size:1.5rem;color:var(--tinta)}
+
+  /* 4 · Lo que te llevás */
+  .llevas{background:var(--petroleo);color:var(--crema)}
+  .llevas .etiqueta{color:var(--oro)}
+  .lista-valor{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:36px}
+  .lista-valor li{border:1px solid rgba(251,249,241,.18);border-radius:var(--radio);padding:26px}
+  .lista-valor .num{font-family:var(--serif);font-size:1.1rem;color:var(--oro);margin-bottom:10px;display:block}
+  .lista-valor p{color:rgba(251,249,241,.82)}
+  .lista-valor .extra{display:block;margin-top:8px;font-size:.88rem;color:rgba(251,249,241,.6)}
+
+  /* 5 · 14 días */
+  .linea{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;position:relative}
+  .paso{background:#fff;border:1px solid rgba(42,42,42,.08);border-radius:var(--radio);padding:28px}
+  .paso-dia{font-family:var(--serif);font-size:2.2rem;font-weight:600;line-height:1;margin-bottom:10px}
+  .paso-dia small{display:block;font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--petroleo);margin-bottom:6px}
+
+  /* 6 · Garantía */
+  .garantia{padding:0 0 96px}
+  .garantia-caja{background:var(--crema-2);border-radius:20px;padding:56px 48px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center}
+  .sello{width:84px;height:84px;border-radius:50%;border:1.5px solid var(--tinta);display:flex;align-items:center;justify-content:center}
+  .sello svg{width:34px;height:34px}
+  .garantia h2{margin-bottom:10px}
+
+  /* 7 · Preguntas */
+  .preguntas{background:var(--crema-2)}
+  .faq{max-width:760px;margin-top:28px}
+  .faq details{border-bottom:1px solid rgba(42,42,42,.14);padding:4px 0}
+  .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;font-weight:600;font-size:1.08rem}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:var(--serif);font-size:1.8rem;line-height:1;color:var(--petroleo);transition:transform .2s ease}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq summary:focus-visible{outline:3px solid var(--oro);outline-offset:4px;border-radius:4px}
+  .faq details p{padding:0 0 22px;max-width:640px}
+
+  /* 8 · Cierre */
+  .cierre{background:var(--carbon);color:var(--crema);text-align:center;padding:112px 0}
+  .cierre svg{width:44px;height:56px;margin:0 auto 26px}
+  .cierre h2{font-size:clamp(2.2rem,5.5vw,3.6rem)}
+  .cierre .bajada{margin:0 auto 34px;color:rgba(251,249,241,.82)}
+  .cierre .nota{margin-top:16px;color:rgba(251,249,241,.6)}
+
+  footer{background:var(--carbon);color:rgba(251,249,241,.6);border-top:1px solid rgba(251,249,241,.1);padding:28px 0;text-align:center;font-size:.9rem}
+  footer em{font-family:var(--serif);font-size:1.1rem;color:var(--crema)}
+
+  @media (max-width:820px){
+    section{padding:72px 0}
+    .inicio{padding:56px 0 72px}
+    .inicio-grilla{grid-template-columns:1fr;gap:28px}
+    .lampara-grande{order:-1;max-width:150px;justify-self:start}
+    .frases{grid-template-columns:1fr}
+    .linea{grid-template-columns:1fr}
+    .garantia{padding-bottom:72px}
+    .garantia-caja{grid-template-columns:1fr;padding:40px 26px;gap:20px}
+    .marca-nombre span{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- Lámpara reutilizable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="lampara" viewBox="0 0 80 100">
+      <path d="M40 22c-4 5-6 9-6 13 0 4 3 7 6 7s6-3 6-7c0-4-2-8-6-13z" fill="#DAA520"/>
+      <path d="M40 30c-2 3-3 5-3 7 0 2 1.5 3 3 3s3-1 3-3c0-2-1-4-3-7z" fill="#FBF9F1" opacity=".8"/>
+      <path d="M28 46c0-10 5-26 12-30 7 4 12 20 12 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M26 46h28M30 50h20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M22 54h36c0 0 6 6 6 15 0 10-10 15-24 15S16 79 16 69c0-9 6-15 6-15z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M24 88h32" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M36 12c0-6 8-6 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- 1 · Encabezado -->
+<header>
+  <div class="contenedor barra">
+    <a class="marca" href="#inicio" aria-label="PALACIOS ConsultorIA, ir al inicio">
+      <svg aria-hidden="true"><use href="#lampara"/></svg>
+      <span class="marca-nombre">PALACIOS<span>ConsultorIA</span></span>
+    </a>
+    <a class="boton boton-principal boton-chico js-reunion" href="#cierre">Agendar 20 min</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1 · Inicio -->
+  <section class="inicio" id="inicio">
+    <div class="contenedor inicio-grilla">
+      <div>
+        <p class="etiqueta">Para peluquerías, estéticas y terapeutas</p>
+        <h1>Tus clientas vuelven solas.</h1>
+        <p class="bajada">Cada visita, fórmula y foto, guardada. Cada mensaje de cuidado, listo para mandar. En 14 días y sin cargar nada vos.</p>
+        <div class="botones">
+          <a class="boton boton-principal" href="#cierre">Quiero esto en mi negocio</a>
+          <a class="boton boton-secundario" href="#demo">Ver la demo</a>
+        </div>
+        <p class="lema">Encendemos soluciones.</p>
+      </div>
+      <div class="lampara-grande" aria-hidden="true">
+        <svg viewBox="0 0 80 100" style="color:var(--tinta);position:relative"><use href="#lampara"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · ¿Te suena? -->
+  <section class="suena" id="te-suena">
+    <div class="contenedor">
+      <p class="etiqueta">¿Te suena?</p>
+      <h2>Lo que se escucha en cada turno.</h2>
+      <div class="frases">
+        <p class="frase">“¿Qué tono le hice la última vez?”</p>
+        <p class="frase">“Hace meses que no viene y ni me di cuenta.”</p>
+        <p class="frase">“Lo tengo anotado… en algún cuaderno.”</p>
+        <p class="frase">“Le iba a escribir y me olvidé.”</p>
+      </div>
+      <p class="remate">No es falta de oficio. Es que todo depende de acordarte.</p>
+      <p class="nota">No es para cadenas grandes ni para negocios donde nadie repite.</p>
+    </div>
+  </section>
+
+  <!-- 3 · Demo -->
+  <section class="demo" id="demo">
+    <div class="contenedor">
+      <p class="etiqueta">Demo</p>
+      <h2>Escribí un nombre. Mirá todo.</h2>
+      <p class="bajada">Acá vas a poder tocar y probar la ficha de una clienta de ejemplo.</p>
+      <div class="demo-caja" role="img" aria-label="Espacio reservado para la demo">
+        <strong>Acá va la demo</strong>
+        <span>Ficha de clienta de ejemplo · próximamente</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Lo que te llevás -->
+  <section class="llevas" id="lo-que-te-llevas">
+    <div class="contenedor">
+      <p class="etiqueta">Lo que te llevás</p>
+      <h2>Todo lo de tus clientas, en tu celular.</h2>
+      <ul class="lista-valor">
+        <li>
+          <span class="num">01</span>
+          <h3>Ficha de cada clienta</h3>
+          <p>Preferencias, cuidados y notas, en tu celular.</p>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <h3>Historial con fotos</h3>
+          <p>Qué le hiciste, con qué fórmula, el antes y el después.</p>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <h3>Búsqueda en segundos</h3>
+          <p>Escribís el nombre y está todo.</p>
+        </li>
+        <li>
+          <span class="num">04</span>
+          <h3>Mensajes que la traen de vuelta</h3>
+          <p>Cuándo volver, cómo cuidar su color, qué producto le conviene.</p>
+          <span class="extra">Opcional: según el calendario lunar.</span>
+        </li>
+        <li>
+          <span class="num">05</span>
+          <h3>Tus fichas actuales, ya cargadas</h3>
+          <p>Me das el cuaderno, yo hago el resto.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5 · 14 días -->
+  <section class="dias" id="como-trabajo">
+    <div class="contenedor">
+      <p class="etiqueta">Cómo trabajo</p>
+      <h2>14 días. Vos seguís atendiendo.</h2>
+      <div class="linea">
+        <div class="paso">
+          <p class="paso-dia"><small>Día</small>1</p>
+          <p>Charlamos 40 minutos.</p>
+        </div>
+        <div class="paso">
+          <p class="paso-dia"><small>Días</small>2 a 13</p>
+          <p>Yo cargo y armo todo.</p>
+        </div>
+        <div class="paso">
+          <p class="paso-dia"><small>Día</small>14</p>
+          <p>La usás desde el celular.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · La probamos antes de cerrar -->
+  <section class="garantia" id="la-probamos">
+    <div class="contenedor">
+      <div class="garantia-caja">
+        <div class="sello" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+        </div>
+        <div>
+          <h2>La probamos antes de cerrar.</h2>
+          <p class="bajada">Con tus clientas reales. Si algo no funciona como acordamos, lo ajusto hasta que funcione.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · Preguntas -->
+  <section class="preguntas" id="preguntas">
+    <div class="contenedor">
+      <p class="etiqueta">Preguntas</p>
+      <h2>Lo que suelen preguntarme.</h2>
+      <div class="faq">
+        <details>
+          <summary>¿Tengo que saber de tecnología?</summary>
+          <p>No. Si usás WhatsApp, la usás.</p>
+        </details>
+        <details>
+          <summary>¿Tengo que cargar todo de nuevo?</summary>
+          <p>No. Lo cargo yo.</p>
+        </details>
+        <details>
+          <summary>¿Quién ve los datos de mis clientas?</summary>
+          <p>Quedan en una cuenta a tu nombre. Vos decidís quién entra.</p>
+        </details>
+        <details>
+          <summary>¿Hay que pagar todos los meses?</summary>
+          <p>No. Pagás una vez. El acompañamiento mensual es opcional.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto sale?</summary>
+          <p>Depende de tu negocio. Te lo digo en la reunión, después de mostrarte cómo quedaría.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · Cierre -->
+  <section class="cierre" id="cierre">
+    <div class="contenedor">
+      <svg aria-hidden="true" style="color:var(--crema)"><use href="#lampara"/></svg>
+      <h2>20 minutos. Tu negocio, con memoria.</h2>
+      <p class="bajada">Te muestro cómo quedaría con tus clientas.</p>
+      <a class="boton boton-oro js-reunion" href="#cierre">Agendá una reunión de 20 minutos</a>
+      <p class="nota">Sin compromiso.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="contenedor">
+    <em>Encendemos soluciones.</em> · PALACIOS ConsultorIA
+  </div>
+</footer>
+
+<script>
+  /*
+    LINK DE LA REUNIÓN
+    Cuando tengas tu link (Calendly, Google Calendar, WhatsApp, etc.),
+    pegalo entre las comillas de abajo. Ejemplo:
+    var LINK_REUNION = "https://calendly.com/tu-usuario/20min";
+    Mientras quede vacío, los botones llevan al final de la página.
+  */
+  var LINK_REUNION = "";
+
+  if (LINK_REUNION) {
+    document.querySelectorAll(".js-reunion").forEach(function (boton) {
+      boton.href = LINK_REUNION;
+      boton.target = "_blank";
+      boton.rel = "noopener";
+    });
+  }
+</script>
+</body>
+</html>
