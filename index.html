@@ -155,6 +155,10 @@
       padding: 24px;
     }
     .tarjeta p { margin: 0; }
+    /* Viñetas dentro de las tarjetas "Sí, si… / No, si…" */
+    .lista { margin: 0; padding-left: 1.2em; }
+    .lista li { margin-bottom: 8px; }
+    .lista li:last-child { margin-bottom: 0; }
     .tarjeta-si { border-top: 4px solid #4f8a5b; }
     .tarjeta-no { border-top: 4px solid #b0a69e; }
 
@@ -283,9 +287,10 @@
     <section class="presentacion" id="inicio">
       <div class="contenedor">
         <span class="etiqueta">Presentación</span>
-        <h1>Tus pedidos, ordenados en un solo mensaje</h1>
-        <p>Soy Luci, cocinera y emprendedora digital, y armo catálogos con pedidos para negocios de comida.</p>
-        <p>Tu cliente elige desde el celular y a vos te llega el pedido completo por WhatsApp.</p>
+        <!-- Frase de oferta: qué entrego, a quién y en cuánto tiempo -->
+        <h1>Tu catálogo con pedido por WhatsApp, listo en 7 a 10 días</h1>
+        <p>Tu cliente elige desde el celular y a vos te llega el pedido completo y ordenado. Sin audios eternos. Sin pedidos perdidos en la hora pico.</p>
+        <p>Soy Luci, cocinera y pastelera de formación y emprendedora digital. Conozco la cocina desde adentro: las manos en la masa y el celular sonando sin parar. Hoy uso IA para que los negocios de comida vendan más y se enreden menos.</p>
         <a href="#reunion" class="boton">Quiero mi reunión de 20 minutos</a>
       </div>
     </section>
@@ -300,11 +305,19 @@
         <div class="tarjetas">
           <div class="tarjeta tarjeta-si">
             <h3>Sí, si…</h3>
-            <p>Tenés rotisería, panadería, viandas o cocinás en casa y tomás pedidos por WhatsApp o Instagram, aunque recién arranques.</p>
+            <ul class="lista">
+              <li>Tenés rotisería, panadería, pastelería, viandas o comida casera.</li>
+              <li>Tomás pedidos por WhatsApp o Instagram y se te desordenan.</li>
+              <li>Recién arrancás o vendés poco y querés verte más profesional.</li>
+            </ul>
           </div>
           <div class="tarjeta tarjeta-no">
             <h3>No, si…</h3>
-            <p>Buscás una tienda con pago online y cientos de productos: esto es simple a propósito.</p>
+            <ul class="lista">
+              <li>Buscás una tienda con pago online y cientos de productos: esto es simple a propósito.</li>
+              <li>No vendés comida ni tomás pedidos por mensaje.</li>
+              <li>Ya tenés un sistema de pedidos que te funciona bien.</li>
+            </ul>
           </div>
         </div>
       </div>
