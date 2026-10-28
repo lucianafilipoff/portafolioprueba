@@ -163,21 +163,139 @@
     .tarjeta-no { border-top: 4px solid #b0a69e; }
 
     /* =========================================================
-       7. SECCIÓN DEMO: caja vacía para completar después
+       7. SECCIÓN DEMO: catálogo con pedido de una panadería de ejemplo
        ========================================================= */
-    .caja-demo {
-      margin-top: 24px;
-      min-height: 280px;
-      border: 2px dashed var(--color-borde);
-      border-radius: var(--radio);
+
+    /* Frases de "Antes" y "Después" */
+    .frase-demo {
+      border-left: 4px solid #b0a69e;
       background: var(--color-blanco);
+      border-radius: 0 var(--radio) var(--radio) 0;
+      padding: 14px 18px;
+      margin: 20px 0;
+    }
+    .frase-demo strong { display: block; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .frase-despues { border-left-color: #4f8a5b; }
+
+    /* Caja que simula el celular del cliente */
+    .demo-app {
+      background: var(--color-blanco);
+      border: 1px solid var(--color-borde);
+      border-radius: 20px;
+      overflow: hidden;
+      max-width: 460px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(43, 37, 34, 0.08);
+    }
+    .demo-cabecera {
+      background: var(--color-acento);
+      color: var(--color-blanco);
+      padding: 16px 20px;
+    }
+    .demo-cabecera h3 { margin: 0; font-size: 1.15rem; }
+    .demo-cabecera p { margin: 2px 0 0; font-size: 0.85rem; opacity: 0.9; }
+    .demo-cuerpo { padding: 8px 16px 20px; }
+
+    /* Cada producto del catálogo */
+    .producto {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--color-borde);
+    }
+    .producto-emoji {
+      flex: 0 0 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--color-fondo-alt);
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 24px;
-      color: var(--color-texto-suave);
+      font-size: 1.6rem;
     }
+    .producto-info { flex: 1; min-width: 0; }
+    .producto-nombre { font-weight: 600; line-height: 1.3; }
+    .producto-detalle { font-size: 0.85rem; color: var(--color-texto-suave); }
+    .producto-precio { font-weight: 600; color: var(--color-acento); font-size: 0.95rem; }
+
+    /* Botones − y + para elegir cantidad */
+    .cantidad { display: flex; align-items: center; gap: 8px; }
+    .cantidad button {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--color-borde);
+      background: var(--color-fondo);
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--color-texto);
+    }
+    .cantidad button:hover { border-color: var(--color-acento); }
+    .cantidad span { min-width: 18px; text-align: center; font-weight: 600; }
+
+    /* Formulario de entrega */
+    .demo-campos { display: grid; gap: 12px; margin-top: 16px; }
+    .demo-campos label { font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 4px; }
+    .demo-campos input,
+    .demo-campos select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--color-borde);
+      border-radius: 10px;
+      font: inherit;
+      background: var(--color-blanco);
+    }
+    .opciones-entrega { display: flex; gap: 8px; }
+    .opciones-entrega label {
+      flex: 1;
+      border: 1px solid var(--color-borde);
+      border-radius: 10px;
+      padding: 10px;
+      font-weight: 400;
+      margin: 0;
+      cursor: pointer;
+      text-align: center;
+    }
+    .opciones-entrega input { width: auto; margin-right: 6px; }
+
+    /* Total y botón de pedido */
+    .demo-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 18px 0 12px;
+    }
+    .demo-app .boton { width: 100%; }
+    .boton:disabled { background: #cfc6be; cursor: not-allowed; }
+    .demo-aviso { font-size: 0.85rem; color: var(--color-texto-suave); text-align: center; margin: 8px 0 0; }
+
+    /* Simulación del chat de WhatsApp donde llega el pedido */
+    .demo-chat {
+      display: none;               /* se muestra al tocar "Hacer pedido" */
+      background: #e9e2d8;
+      border-radius: var(--radio);
+      padding: 16px;
+      margin-top: 16px;
+    }
+    .demo-chat.visible { display: block; }
+    .demo-chat-titulo { font-size: 0.8rem; text-align: center; color: var(--color-texto-suave); margin-bottom: 10px; }
+    .burbuja {
+      background: #dcf8c6;
+      border-radius: 12px 12px 4px 12px;
+      padding: 12px 14px;
+      white-space: pre-line;       /* respeta los saltos de línea del mensaje */
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-left: 10%;
+    }
+    .link-whatsapp { display: inline-block; margin-top: 12px; font-size: 0.9rem; color: var(--color-acento-oscuro); }
+
+    /* Botón final de la demo */
+    .demo-cta { text-align: center; margin-top: 28px; }
+    .demo-cta .boton { max-width: 460px; width: 100%; }
 
     /* =========================================================
        8. SECCIÓN "CÓMO TRABAJO": pasos numerados
@@ -324,27 +442,86 @@
     </section>
 
     <!-- =========================================================
-         SECCIÓN 3: DEMO (por ahora, una caja vacía)
-         Más adelante acá va el antes/después o el pedido de prueba.
+         SECCIÓN 3: DEMO INTERACTIVA
+         Catálogo con pedido de una panadería de ejemplo.
+         Los productos se cargan desde el JavaScript del final
+         (buscá "PRODUCTOS DE LA DEMO" para cambiarlos).
          ========================================================= -->
     <section id="demo">
       <div class="contenedor">
         <span class="etiqueta">Demo</span>
         <h2>Mirá la diferencia</h2>
-        <!-- Antes / Después: reutiliza las tarjetas de la sección "Para quién" -->
-        <div class="tarjetas">
-          <div class="tarjeta tarjeta-no">
-            <h3>Antes</h3>
-            <p>Tres audios, "¿cuánto sale la docena?" y un pedido anotado en un papelito.</p>
+
+        <!-- 1) ANTES, en una frase -->
+        <div class="frase-demo">
+          <strong>Antes</strong>
+          Tres audios, "¿cuánto sale la docena?" y un pedido anotado en un papelito.
+        </div>
+
+        <p>Probalo vos como si fueras clienta de esta panadería: elegí, completá y mandá el pedido.</p>
+
+        <!-- 2) LA DEMO: así ve el catálogo el cliente en su celular -->
+        <div class="demo-app">
+          <div class="demo-cabecera">
+            <h3>🥐 Panadería La Espiga</h3>
+            <p>Pedidos de lunes a sábado · Ejemplo de demostración</p>
           </div>
-          <div class="tarjeta tarjeta-si">
-            <h3>Después</h3>
-            <p>Un mensaje con productos, cantidades, envío y horario, listo para cocinar.</p>
+
+          <div class="demo-cuerpo">
+            <!-- Acá el JavaScript dibuja la lista de productos -->
+            <div id="lista-productos"></div>
+
+            <!-- Datos de entrega -->
+            <div class="demo-campos">
+              <div>
+                <label for="demo-nombre">Tu nombre</label>
+                <input type="text" id="demo-nombre" placeholder="Ej: Carla" autocomplete="off">
+              </div>
+              <div>
+                <label>¿Cómo lo recibís?</label>
+                <div class="opciones-entrega">
+                  <label><input type="radio" name="entrega" value="retiro" checked>Retiro</label>
+                  <label><input type="radio" name="entrega" value="envio">Envío (+$1.500)</label>
+                </div>
+              </div>
+              <div id="campo-direccion" hidden>
+                <label for="demo-direccion">Dirección</label>
+                <input type="text" id="demo-direccion" placeholder="Ej: San Martín 845" autocomplete="off">
+              </div>
+              <div>
+                <label for="demo-horario">Horario</label>
+                <select id="demo-horario">
+                  <option>Mañana (8 a 12 h)</option>
+                  <option>Tarde (16 a 20 h)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="demo-total">
+              <span>Total</span>
+              <span id="demo-total">$0</span>
+            </div>
+            <button type="button" class="boton" id="demo-enviar" disabled>Hacer pedido de prueba</button>
+            <p class="demo-aviso" id="demo-aviso">Sumá al menos un producto con el botón +</p>
+
+            <!-- Así le llega el pedido a la panadería -->
+            <div class="demo-chat" id="demo-chat" aria-live="polite">
+              <div class="demo-chat-titulo">Así le llega a la panadería por WhatsApp 👇</div>
+              <div class="burbuja" id="demo-mensaje"></div>
+              <a href="#" class="link-whatsapp" id="demo-link-wa" target="_blank" rel="noopener">Ver este mensaje en mi WhatsApp →</a>
+            </div>
           </div>
         </div>
-        <!-- Caja reservada para el pedido de prueba (se completa más adelante) -->
-        <div class="caja-demo" aria-label="Espacio reservado para la demo">
-          Acá va el pedido de prueba
+
+        <!-- 3) DESPUÉS, en una frase -->
+        <div class="frase-demo frase-despues">
+          <strong>Después</strong>
+          Un solo mensaje con productos, cantidades, envío y horario, listo para cocinar.
+        </div>
+
+        <!-- Botón final de la demo: lleva a la sección de reunión -->
+        <div class="demo-cta">
+          <a href="#reunion" class="boton">¿Lo ves claro? Agendá 20 minutos y te armo la versión para tu negocio</a>
         </div>
       </div>
     </section>
@@ -483,6 +660,135 @@
         evento.preventDefault();
         alert("¡Pronto vas a poder agendar desde acá!");
       }
+    });
+
+    /* =========================================================
+       3. DEMO DEL CATÁLOGO CON PEDIDO
+       ========================================================= */
+
+    // PRODUCTOS DE LA DEMO: para cambiarlos, editá esta lista.
+    // Cada producto tiene: emoji, nombre, detalle y precio (sin puntos).
+    var productos = [
+      { emoji: "🥐", nombre: "Medialunas de manteca", detalle: "Docena", precio: 9000 },
+      { emoji: "🍞", nombre: "Pan francés", detalle: "1 kg", precio: 3500 },
+      { emoji: "🧀", nombre: "Chipá", detalle: "250 g", precio: 4000 },
+      { emoji: "🍪", nombre: "Alfajores de maicena", detalle: "Docena", precio: 7500 },
+      { emoji: "🍋", nombre: "Budín de limón", detalle: "Entero", precio: 6500 },
+      { emoji: "🍫", nombre: "Brownie con dulce de leche", detalle: "Torta para 8", precio: 18000 }
+    ];
+    var COSTO_ENVIO = 1500;
+
+    // Guarda cuántas unidades eligió de cada producto
+    var cantidades = productos.map(function () { return 0; });
+
+    // Formatea números como precio argentino: 9000 → $9.000
+    function precio(numero) {
+      return "$" + numero.toLocaleString("es-AR");
+    }
+
+    // Dibuja la lista de productos con sus botones − y +
+    var lista = document.getElementById("lista-productos");
+    productos.forEach(function (producto, i) {
+      var fila = document.createElement("div");
+      fila.className = "producto";
+      fila.innerHTML =
+        '<div class="producto-emoji" aria-hidden="true"></div>' +
+        '<div class="producto-info">' +
+          '<div class="producto-nombre"></div>' +
+          '<div class="producto-detalle"></div>' +
+          '<div class="producto-precio"></div>' +
+        '</div>' +
+        '<div class="cantidad">' +
+          '<button type="button" aria-label="Quitar uno">−</button>' +
+          '<span>0</span>' +
+          '<button type="button" aria-label="Sumar uno">+</button>' +
+        '</div>';
+      fila.querySelector(".producto-emoji").textContent = producto.emoji;
+      fila.querySelector(".producto-nombre").textContent = producto.nombre;
+      fila.querySelector(".producto-detalle").textContent = producto.detalle;
+      fila.querySelector(".producto-precio").textContent = precio(producto.precio);
+
+      var botones = fila.querySelectorAll("button");
+      var numero = fila.querySelector(".cantidad span");
+      botones[0].addEventListener("click", function () {
+        if (cantidades[i] > 0) cantidades[i]--;
+        numero.textContent = cantidades[i];
+        actualizar();
+      });
+      botones[1].addEventListener("click", function () {
+        cantidades[i]++;
+        numero.textContent = cantidades[i];
+        actualizar();
+      });
+      lista.appendChild(fila);
+    });
+
+    // Elementos del formulario
+    var campoDireccion = document.getElementById("campo-direccion");
+    var botonEnviar = document.getElementById("demo-enviar");
+    var aviso = document.getElementById("demo-aviso");
+    var chat = document.getElementById("demo-chat");
+
+    // ¿Eligió envío o retiro?
+    function esEnvio() {
+      return document.querySelector('input[name="entrega"]:checked').value === "envio";
+    }
+
+    // Muestra u oculta la dirección según la forma de entrega
+    document.querySelectorAll('input[name="entrega"]').forEach(function (opcion) {
+      opcion.addEventListener("change", function () {
+        campoDireccion.hidden = !esEnvio();
+        actualizar();
+      });
+    });
+
+    // Recalcula el total y activa el botón si hay productos
+    function actualizar() {
+      var subtotal = 0;
+      productos.forEach(function (producto, i) {
+        subtotal += producto.precio * cantidades[i];
+      });
+      var hayProductos = subtotal > 0;
+      var total = subtotal + (hayProductos && esEnvio() ? COSTO_ENVIO : 0);
+      document.getElementById("demo-total").textContent = precio(total);
+      botonEnviar.disabled = !hayProductos;
+      aviso.textContent = hayProductos
+        ? "Es una demo: no se cobra ni se envía nada a la panadería."
+        : "Sumá al menos un producto con el botón +";
+      return total;
+    }
+
+    // Arma el mensaje ordenado, igual al que llega por WhatsApp
+    botonEnviar.addEventListener("click", function () {
+      var total = actualizar();
+      var nombre = document.getElementById("demo-nombre").value.trim() || "Cliente";
+      var direccion = document.getElementById("demo-direccion").value.trim() || "(sin dirección)";
+      var horario = document.getElementById("demo-horario").value;
+
+      var lineas = ["🛒 Nuevo pedido · Panadería La Espiga", "", "👤 " + nombre, ""];
+      productos.forEach(function (producto, i) {
+        if (cantidades[i] > 0) {
+          lineas.push("• " + cantidades[i] + " × " + producto.nombre + " (" + producto.detalle + ") — " + precio(producto.precio * cantidades[i]));
+        }
+      });
+      lineas.push("");
+      if (esEnvio()) {
+        lineas.push("🛵 Envío a: " + direccion + " (+" + precio(COSTO_ENVIO) + ")");
+      } else {
+        lineas.push("🏠 Retira en el local");
+      }
+      lineas.push("🕐 Horario: " + horario);
+      lineas.push("💰 Total: " + precio(total));
+
+      var mensaje = lineas.join("\n");
+      document.getElementById("demo-mensaje").textContent = mensaje;
+
+      // Link para ver el mensaje en el propio WhatsApp (no se manda solo:
+      // la persona elige a quién mandárselo, por ejemplo a sí misma)
+      document.getElementById("demo-link-wa").href = "https://wa.me/?text=" + encodeURIComponent(mensaje);
+
+      chat.classList.add("visible");
+      chat.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
   </script>
 
